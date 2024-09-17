@@ -8,6 +8,16 @@ const routerOptions: ExtraOptions = {
 
 const routes: Routes = [
     {
+        path: '', //component: BankingDashboardComponent,
+        redirectTo: 'auth/login',
+        pathMatch: 'full'
+    },
+    {
+        path: 'pl-virtual', component: AppLayoutComponent,
+        loadChildren: () => import('./components/controlpyme/controlpyme/controlpyme.module').then(m => m.ControlpymeModule) 
+       
+    },
+    {
         path: '', component: AppLayoutComponent,
         children: [
             { path: '', loadChildren: () => import('./demo/components/dashboards/dashboards.module').then(m => m.DashboardsModule) },
